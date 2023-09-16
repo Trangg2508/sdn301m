@@ -7,16 +7,15 @@ const express = require('express');
 const app = express();
 
 const bodyParser = require('body-parser');
+
+const blackpinkRouter = require('./routes/blackpinkRouter');
 app.use(bodyParser.json());
 
-// app.use((req, res) => {
-//     console.log(req.headers);
-//     res.statusCode = 200;
-//     res.setHeader('Content-Type','text/html');
-//     res.end('<html><body><h1>This is express demo</h1></body></html>');
-// })
+app.use('/blackpink',blackpinkRouter)
 
-app.all('/blackpink', (req, res, next) => {
+
+
+/*app.all('/blackpink', (req, res, next) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');
     next();
@@ -56,7 +55,7 @@ app.put('/blackpink/:blackpinkId', (req, res, next) => {
 app.delete('/blackpink/:blackpinkId', (req, res, next) => {
     res.end('Deleting a member: '+ req.params.blackpinkId);
 });
-
+*/
 
 const server = http.createServer(app);
 
